@@ -10,11 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/datvidc/around-express.git"
   },
-  "keywords": [Express],
+  "keywords": [],
   "author": "No/Mad",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/datvidc/around-express/issues"
   },
-  "homepage": "https://github.com/datvidc/around-express#readme"
+  "homepage": "https://github.com/datvidc/around-express#readme",
+  "devDependencies": {
+    "eslint": "^7.9.0"
+  }
 }
