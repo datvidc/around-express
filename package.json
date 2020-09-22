@@ -1,11 +1,11 @@
 {
-  "name": "around-express",
+  "name": "aroundExpress",
   "version": "1.0.0",
-  "description": "## Project 12 -  Project 12 in the web developer bootcamp @Yandex Practicum",
+  "description": " Project 12 -  Project 12 in the web developer bootcamp @Yandex Practicum",
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
