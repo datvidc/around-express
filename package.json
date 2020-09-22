@@ -1,0 +1,20 @@
+{
+  "name": "around-express",
+  "version": "1.0.0",
+  "description": "## Project 12 -  Project 12 in the web developer bootcamp @Yandex Practicum",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datvidc/around-express.git"
+  },
+  "keywords": [Express],
+  "author": "No/Mad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/datvidc/around-express/issues"
+  },
+  "homepage": "https://github.com/datvidc/around-express#readme"
+}
