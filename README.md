@@ -1,5 +1,18 @@
 # Around the U.S. Front End + Back End
 
+## Project 12 - 
+Project 12 in the web developer bootcamp @Yandex Practicum
+
+This is the first project to touch on the backend. 
+
+This project is about setting up the backend and connecting it to the output of the previous projects. 
+
+### Technologies and methodologies
+React framework was used to complete the frontend part of the project. 
+
+- Create React App for scaffolding and bootstrapping the project.
+
+
 ## Directories
 
 `/public` — static files from the build of the React front-end app.
