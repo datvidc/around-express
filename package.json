@@ -4,6 +4,7 @@
   "description": "## Project 12 -  Project 12 in the web developer bootcamp @Yandex Practicum",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,10 +19,12 @@
   },
   "homepage": "https://github.com/datvidc/around-express#readme",
   "devDependencies": {
-    "eslint": "^7.9.0"
+    "eslint": "^7.9.0",
+    "nodemon": "^2.0.4"
   },
   "dependencies": {
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0"
+    "eslint-plugin-import": "^2.22.0",
+    "express": "^4.17.1"
   }
 }
