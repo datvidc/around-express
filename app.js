@@ -3,10 +3,10 @@ const express = require('express');
 const { PORT = 3000 } = process.env;
 const app = express();
 const path = require('path');
+const userRouter = require('./routes/userRouter'); // importing the router
 
 app.use(express.static(path.join(__dirname, 'public')));
 // now the client only has access to public files
-
 
 
 app.listen(PORT, () => {
