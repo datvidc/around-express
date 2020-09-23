@@ -14,9 +14,8 @@ function getData(path) {
 //get request to users
 router.get('/', (req, res) => {
   getData(dataBase)
-    .then(JSON.parse)
-    .catch(err => console.log(err));
-  res.send(users);
+    .then(users)
+    res.send(users);
 });
 
  // get request for /users/:id
