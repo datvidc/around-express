@@ -1,19 +1,27 @@
-const userRouter = require('express').Router(); // creating Express Router
-const { users } = require('../data/users.json'); // importing user data
+const router = require('express').Router(); // creating Express Router
+const users = require('../data/users.json'); // importing user data
 
+//get request to users
+router.get('/', (req, res) => {
 
-
-userRouter.get('/users/:id', (req, res) => {
-  if (!users._id === req.params.id) {
-    res.status(404).send({ "message": "User ID not found" });
-  }
-
-  const { user } = users.filter(user => user._id === req.params.id);
-
-  res.send(user);
+  res.send(users);
 });
 
-module.exports = {
-    userRouter; // exporting
+ // get request for /users/:id
+ router.get('/:id', (req, res) => {
+  console.log(req.params.id);
+  let userID = users.find((user) => user._id === req.params.id);
+  console.log(userID);
+  if (userID) {
+    res.send(userID);
 
-};
+  }
+
+   res.status(404).send({ "message": "User ID not found" });
+
+
+});
+
+
+
+module.exports = router;
