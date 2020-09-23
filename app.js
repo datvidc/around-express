@@ -8,6 +8,8 @@ const userRouter = require('./routes/userRouter'); // importing the router
 app.use(express.static(path.join(__dirname, 'public')));
 // now the client only has access to public files
 
+app.use('/users/:id' userRouter); //starting user router
+
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
