@@ -3,7 +3,7 @@ const { users } = require('../data/users.json'); // importing user data
 
 
 
-router.get('/users/:id', (req, res) => {
+userRouter.get('/users/:id', (req, res) => {
   if (!users._id === req.params.id) {
     res.status(404).send({ "message": "User ID not found" });
   }
