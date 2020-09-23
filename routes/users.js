@@ -1,8 +1,21 @@
+const fs = require('fs').promises;
 const router = require('express').Router(); // creating Express Router
+const path = require('path');
+const dataBase = path.join(__dirname, '..', 'data', 'users.json');
 const users = require('../data/users.json'); // importing user data
+
+function getData(path) {
+  return fs.readFile(path, { enconding: 'utf-8' })
+    .then(JSON.parse)
+    .catch(err => console.log(err));
+}
+
 
 //get request to users
 router.get('/', (req, res) => {
+  getData(dataBase)
+    .then(JSON.parse)
+    .catch(err => console.log(err));
   res.send(users);
 });
 
