@@ -20,11 +20,15 @@ router.get('/', (req, res) => {
 
  // get request for /users/:id
  router.get('/:id', (req, res) => {
-  let userID = users.find((user) => user._id === req.params.id);
+  getData(dataBase)
+    .then((users) => {
+      let userID = users.find((user) => user._id === req.params.id);
   if (userID) {
     res.send(userID);
   }
    res.status(404).send({ "message": "User ID not found" });
+    });
+
 });
 
 module.exports = router;
