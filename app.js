@@ -7,6 +7,8 @@ const path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
 // now the client only has access to public files
 
+
+
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`App listening - Port: ${PORT}`);
