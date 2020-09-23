@@ -4,12 +4,22 @@ const { PORT = 3000 } = process.env;
 const app = express();
 const path = require('path');
 const userRouter = require('./routes/users'); // importing the router
+const cardRouter = require('./routes/cards'); // importing the router
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 // now the client only has access to public files
 
 app.use('/users', userRouter);
  //starting user router
+
+app.use('/cards', cardRouter);
+//starting Cards router
+
+//this goes last-catchall.
+app.get('*', (req, res) => {
+  res.status(404).send({ message: "Requested resource not found" });
+})
 
 
 app.listen(PORT, () => {
