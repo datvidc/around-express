@@ -7,7 +7,7 @@ function getData(dataPath) {
   return fs.readFile(dataPath, { enconding: 'utf-8' })
     .then(JSON.parse)
     .catch((err) => {
-      console.log(err);
+      res.status(500).send({message: err})
     });
 }
 
