@@ -1,10 +1,24 @@
 const express = require('express');
-// listen to port 3000
-const { PORT = 3000 } = process.env;
-const app = express();
+const mongoose = require('mongoose'); // importing mongoose
 const path = require('path');
 const userRouter = require('./routes/users'); // importing the router
 const cardRouter = require('./routes/cards'); // importing the router
+
+
+
+
+// listen to port 3000
+const { PORT = 3000 } = process.env;
+const app = express();
+
+
+mongoose.connect('mongodb://localhost:27017/aroundb', {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+    useFindAndModify: false
+});
+
+
 
 
 app.use(express.static(path.join(__dirname, 'public')));
