@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 const userSchema = new mongoose.Schema({
   name: { //  name — username, string from 2 to 30 characters, required field
     type: String,
@@ -16,16 +15,14 @@ const userSchema = new mongoose.Schema({
   },
   avatar: {
     type: String,
-    required: true;
+    required: true,
     validate: {
       validator(v) {
-        const rex = '^https?:\/\/(www\.)?[a-zA-Z0-9-._~:?[\]@!$?&'\/()#*+,;=%]+\.[a-zA-Z0-9-._~:?#[\]@!$&'()*+,;=\/%]+($#?)?';
-        return rex.test(v);
+        return /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/.test(v);
       },
-      message: 'Sorry, the URL does not match my validation requirements'
-    }
-  }
+      message: 'Sorry, the URL does not match my validation requirements',
+    },
+  },
 });
-
 
 module.exports = mongoose.model('user', userSchema);

@@ -15,15 +15,16 @@ function getData(dataPath) {
 
 //get request to users
 router.get('/', (req, res) => {
-  getData(dataBase)
+  User.find({})
     .then((users) => {
-      res.send(users);
-    });
+      res.send(users)
+    })
+    .catch(err => res.status(500).send({ message: 'What did you do This time ??' }));
 });
 
 // get request for /users/:id
 router.get('/:id', (req, res) => {
-  getData(dataBase)
+  User.find({})
     .then((users) => {
       const userID = users.find((user) => user._id === req.params.id);
       if (userID) {
@@ -34,12 +35,14 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const { name, about, avatar } = req.body; // get the name and description of the user
+  console.log(req.body);
+  const { name, about, avatar } = req.body; // get name avatar description of the user
+  console.log(avatar);
 
   User.create({ name, about, avatar })
   .then(user => res.send({data: user}))//Returns the data
   //in case of errors
-  .catch(err => res.status(500).send({ message: 'What did you do This time ??' }));
+  .catch(err => res.status(500).send(err));
 
 
 });
