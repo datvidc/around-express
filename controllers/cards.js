@@ -26,3 +26,7 @@ module.exports.returnCards = (req, res) => {
   })
   .catch(err => res.status(500).send({ message: 'What did you do This time ??' }));
 }
+
+module.exports.deleteCard = (req, res, id) => {
+
+}

@@ -12,6 +12,6 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   card.createCard(req, res);
-})
+});
 
 module.exports = router;
