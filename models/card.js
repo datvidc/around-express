@@ -10,11 +10,10 @@ const cardSchema = new mongoose.Schema({
   },
   link: { //link — link to the picture, string, required field. Use the regular expression from the user schema to validate input data
     type: String,
-    required: true;
+    required: true,
     validate: {
       validator(v) {
-        const rex = '^https?:\/\/(www\.)?[a-zA-Z0-9-._~:?[\]@!$?&'\/()#*+,;=%]+\.[a-zA-Z0-9-._~:?#[\]@!$&'()*+,;=\/%]+($#?)?';
-        return rex.test(v);
+        return /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/.test(v);
       },
       message: 'Sorry, the URL does not match my validation requirements'
     }

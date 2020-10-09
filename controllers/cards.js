@@ -2,5 +2,27 @@ const Cards = require('../models/card.js');
 
 
 module.exports.createCard = (req, res) => {
-  console.log(req.user._id); // _id will become accessible
+  const {name, link } = req.body;
+
+  Cards.create({
+    name,
+    link,
+    owner: req.user._id,
+  })
+    .then((card) => {
+      res.send({ data: card })
+    })
+
+    .catch((error) => {
+      res.status(500).send({ message: 'What did you do This time ??' })
+    });
+
 };
+
+module.exports.returnCards = (req, res) => {
+  Cards.find({})
+  .then((cards) => {
+    res.send(cards);
+  })
+  .catch(err => res.status(500).send({ message: 'What did you do This time ??' }));
+}

@@ -1,8 +1,6 @@
 const fs = require('fs').promises;
 const router = require('express').Router(); // creating Express Router
 const path = require('path');
-const dataBase = path.join(__dirname, '..', 'data', 'users.json');
-const User = require('../models/user');
 const users = require('../controllers/users');
 
 
