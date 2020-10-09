@@ -5,7 +5,7 @@ module.exports.returnAllUsers = (req, res) => {
     .then((users) => {
       res.send(users)
     })
-    .catch(err => res.status(500).send({ message: 'What did you do This time ??' }));
+    .catch(err => res.status(500).send({ "message": "An error occurred" }));
 };
 
 module.exports.createNewUser = (req, res) => {
@@ -13,7 +13,7 @@ module.exports.createNewUser = (req, res) => {
   User.create({ name, about, avatar })
 .then(user => res.send({data: user}))//Returns the data
   //in case of errors
-.catch(err => res.status(500).send(err));
+.catch(err => res.status(500).send({"message": "An error occurred"}));
 }
 
 module.exports.getUserById = (req, res) => {
@@ -28,6 +28,6 @@ module.exports.getUserById = (req, res) => {
     })
     .catch((err) => {
 
-      res.status(404).send({ "message": "User ID not found" });
+      res.status(500).send({ "message": "An error occurred" });
     })
 };
