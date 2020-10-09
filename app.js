@@ -20,6 +20,15 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 // now the client only has access to public files
 
+app.use((req, res, next) => {
+  req.user = {
+    _id: '5f7fab44af260a56a63be162' // paste the _id of the test user created in the previous step
+  };
+  next();
+});
+
+
+
 app.use('/users', userRouter);
  //starting user router
 
