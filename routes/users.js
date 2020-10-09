@@ -21,27 +21,12 @@ router.get('/', (req, res) => {
 
 // get request for /users/:id
 router.get('/:id', (req, res) => {
-  User.find({})
-    .then((users) => {
-      const userID = users.find((user) => user._id === req.params.id);
-      if (userID) {
-        return res.send(userID);
-      }
-      res.status(404).send({ "message": "User ID not found" });
-    });
+  users.getUserById(req, res);
+
+
 });
-
 router.post('/', (req, res) => {
-  users.getUserById
-  const { name, about, avatar } = req.body; // get name avatar description of the user
-
-
-  User.create({ name, about, avatar })
-  .then(user => res.send({data: user}))//Returns the data
-  //in case of errors
-  .catch(err => res.status(500).send(err));
-
-
+  users.createNewUser(req, res); // Setting up new user
 });
 
 module.exports = router;

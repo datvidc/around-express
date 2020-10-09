@@ -21,6 +21,19 @@ module.exports.createNewUser = (req, res) => {
 }
 
 module.exports.getUserById = (req, res) => {
+  let userId = req.params.id;
+  User.findById(userId)
+    .then((user) => {
+      if (user) {
+        return res.send(user);
+      } else {
+        return res.status(404).send({"message": "User Not Found"});
+      }
 
 
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(404).send({ "message": "User ID not found" });
+    })
 };
