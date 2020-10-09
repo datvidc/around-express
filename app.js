@@ -33,7 +33,7 @@ app.use('/cards', cardRouter);
 
 //this goes last-catchall.
 app.get('*', (req, res) => {
-  res.status(404).send({ message: "Requested resource not found" });
+  res.status(404).send({ Haiku: "You step in the stream . . . But the water has moved on . . . Ressource not found" });
 })
 
 app.listen(PORT, () => {
