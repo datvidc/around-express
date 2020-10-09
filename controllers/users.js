@@ -9,6 +9,18 @@ module.exports.returnAllUsers = (req, res) => {
     .catch(err => res.status(500).send({ message: 'What did you do This time ??' }));
 };
 
-module.exports.getUserById = (req, res) => {
+module.exports.createNewUser = (req, res) => {
+  const { name, about, avatar } = req.body; // get name avatar description of the user
+
+  User.create({ name, about, avatar })
+  .then(user => res.send({data: user}))//Returns the data
+  //in case of errors
+  .catch(err => res.status(500).send(err));
+
 
 }
+
+module.exports.getUserById = (req, res) => {
+
+
+};
