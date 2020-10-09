@@ -16,7 +16,6 @@ module.exports.createCard = (req, res) => {
     .catch((error) => {
       res.status(500).send({ message: 'What did you do This time ??' })
     });
-
 };
 
 module.exports.returnCards = (req, res) => {
@@ -36,7 +35,6 @@ module.exports.deleteCard = (req, res) => {
       } else {
         res.status(404).send({ 'message': "Card not found"})
       }
-
     })
     .catch((err) => {
       res.status(500).send({ 'message': "An error occurred"});
