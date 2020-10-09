@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 const cardSchema = new mongoose.Schema({
   name: { //  name — card name, string from 2 to 30 characters, required field
     type: String,
