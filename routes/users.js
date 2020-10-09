@@ -3,6 +3,7 @@ const router = require('express').Router(); // creating Express Router
 const path = require('path');
 const dataBase = path.join(__dirname, '..', 'data', 'users.json');
 const User = require('../models/user');
+const users = require('../controllers/users');
 
 
 function getData(dataPath) {
@@ -15,11 +16,8 @@ function getData(dataPath) {
 
 //get request to users
 router.get('/', (req, res) => {
-  User.find({})
-    .then((users) => {
-      res.send(users)
-    })
-    .catch(err => res.status(500).send({ message: 'What did you do This time ??' }));
+  users.returnAllUsers(req, res);
+
 });
 
 // get request for /users/:id

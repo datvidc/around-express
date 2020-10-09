@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
   req.user = {
-    _id: '5f7fab44af260a56a63be162' // paste the _id of the test user created in the previous step
+    _id: '5f7fab44af260a56a63be162' // paste the _id of my test user
   };
   next();
 });
