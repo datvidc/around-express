@@ -1,7 +1,4 @@
 const router = require('express').Router(); // creating Express Router
-const path = require('path');
-const fs = require('fs').promises;
-const Cards = require('../models/card');
 const card = require('../controllers/cards');
 
 
@@ -14,7 +11,8 @@ router.post('/', (req, res) => {
   card.createCard(req, res);
 });
 
-
-
+router.delete('/:cardId', (req, res) => {
+  card.deleteCard(req, res);
+});
 
 module.exports = router;

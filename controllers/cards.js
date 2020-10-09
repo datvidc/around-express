@@ -27,6 +27,19 @@ module.exports.returnCards = (req, res) => {
   .catch(err => res.status(500).send({ message: 'What did you do This time ??' }));
 }
 
-module.exports.deleteCard = (req, res, id) => {
+module.exports.deleteCard = (req, res) => {
+  let cId = req.params.cardId; //Cardid from request
+  Cards.findByIdAndRemove(cId)
+    .then((card) => {
+      if(card) {
+        res.send({ data: card });
+      } else {
+        res.status(404).send({ 'message': "Card not found"})
+      }
+
+    })
+    .catch((err) => {
+      res.status(500).send({ 'message': "An error occurred"});
+    })
 
 }
