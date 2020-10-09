@@ -1,6 +1,5 @@
 const Cards = require('../models/card.js');
 
-
 module.exports.createCard = (req, res) => {
   const {name, link } = req.body;
 
@@ -39,5 +38,4 @@ module.exports.deleteCard = (req, res) => {
     .catch((err) => {
       res.status(500).send({ 'message': "An error occurred"});
     })
-
 }

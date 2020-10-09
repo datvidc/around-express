@@ -1,8 +1,6 @@
 const router = require('express').Router(); // creating Express Router
 const card = require('../controllers/cards');
 
-
-
 router.get('/', (req, res) => {
   card.returnCards(req, res);
 });
