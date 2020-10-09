@@ -46,8 +46,11 @@ module.exports.updateUser = (req, res) => {
     }
   })
   .catch((err) => {
+    if (err._message == 'Validation failed') {
+      res.status(400).send({"error Message": "Data provided failed validation. Please update with valid data"});
+    } else {
     res.status(500).send({ Haiku: "To have no errors . . . Would be life without meaning . . . No struggle, no joy" });
-
+    }
 });
 }
 
@@ -66,20 +69,11 @@ module.exports.updateAvatar = (req, res) => {
     }
   })
   .catch((err) => {
+    if (err._message == 'Validation failed') {
+      res.status(400).send({"error Message": "Validation failed. Please supply a valid URL"});
+    }
     res.status(500).send({ Haiku: "With searching comes loss . . . The presence of absence . . . an error found" });
   })
 
 
 };
-
-module.exports.likeCard = (req, res) => Card.findByIdAndUpdate(
-  req.params.cardId,
-  { $addToSet: { likes: req.user._id } }, // add _id to the array if it's not there yet
-  { new: true },
-);
-
-module.exports.dislikeCard = (req, res) => Card.findByIdAndUpdate(
-  req.params.cardId,
-  { $pull: { likes: req.user._id } }, // remove _id from the array
-  { new: true },
-);

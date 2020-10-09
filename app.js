@@ -8,6 +8,8 @@ const cardRouter = require('./routes/cards'); // importing the router
 const { PORT = 3000 } = process.env;
 const app = express();
 
+mongoose.set('runValidators', true); //MMongo doesnt run validation on update by default
+
 mongoose.connect('mongodb://localhost:27017/aroundb', {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -33,7 +35,7 @@ app.use('/cards', cardRouter);
 
 //this goes last-catchall.
 app.get('*', (req, res) => {
-  res.status(404).send({ Haiku: "You step in the stream . . . But the water has moved on . . . Ressource not found" });
+  res.status(404).send({ Haiku: "You step in the stream . . . But the water has moved on . . . Your search continue" });
 })
 
 app.listen(PORT, () => {

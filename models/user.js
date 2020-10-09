@@ -17,8 +17,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate: {
-      validator(v) {
-        return /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/.test(v);
+      validator: function(v) {
+        const iregular = /^https?:\/\/(www\.)?[a-zA-Z0-9-._~:\/?#[\]@!$&'()*+,;=%]+\.[a-zA-Z0-9-._~:\/?#[\]@!$&'()*+,;=%]+(#$)?/gi;
+        return iregular.test(v);
       },
       message: 'Sorry, the URL does not match my validation requirements',
     },
