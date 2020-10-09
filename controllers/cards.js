@@ -22,7 +22,7 @@ module.exports.returnCards = (req, res) => {
   .then((cards) => {
     res.send(cards);
   })
-  .catch(err => res.status(500).send({ message: 'What did you do This time ??' }));
+  .catch(err => res.status(500).send({ message: "An error occurred" }));
 }
 
 module.exports.deleteCard = (req, res) => {
