@@ -17,7 +17,6 @@ function getData(dataPath) {
 //get request to users
 router.get('/', (req, res) => {
   users.returnAllUsers(req, res);
-
 });
 
 // get request for /users/:id
@@ -33,9 +32,9 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  console.log(req.body);
+  users.getUserById
   const { name, about, avatar } = req.body; // get name avatar description of the user
-  console.log(avatar);
+
 
   User.create({ name, about, avatar })
   .then(user => res.send({data: user}))//Returns the data
