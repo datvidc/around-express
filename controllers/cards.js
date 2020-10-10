@@ -12,7 +12,7 @@ module.exports.createCard = (req, res) => {
       res.send({ data: card })
     })
 
-    .catch((error) => {
+    .catch((err) => {
       if (err.name === "ValidationError") {
         res.status(400).send({ message: "User validation failed" });
       } else {
