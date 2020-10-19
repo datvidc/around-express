@@ -1,11 +1,18 @@
 # Around the U.S. Front End + Back End
 
+
+
+
+
 ## Project 13 
 Project 13 in the web developer bootcamp @Yandex {Practicum}
 
 This project introduces database and database concepts. 
 
 Server is setup from project 12, but instead of using the Yandex API, we are now building our own api service, and connecting to a MongoDB. 
+
+WE are completely disconnnecting the API from the frontEnd. Frontend is now removed from this project. 
+
 
 
 
